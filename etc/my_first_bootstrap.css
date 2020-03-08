@@ -1,0 +1,15 @@
+* {
+    font-family: 'Yeon Sung', cursive;
+}
+
+.card-title-font {
+    color: darkblue;
+    font-weight: bold;
+    font-size: larger;
+  }
+
+.card-link-font {
+    color: darkblue;
+    font-weight: bold;
+}
+
