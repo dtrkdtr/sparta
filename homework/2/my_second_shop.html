@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Webpage Title-->
+
+  <!-- meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style type="text/css">
+    * {
+      font-family: 'Stylish', sans-serif;
+    }
+
+    #photo {
+      width: 450px;
+      margin: 0 auto;
+    }
+
+    #description {
+      width: 450px;
+      margin: 0 auto;
+    }
+
+    .buy {
+      width: 450px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #button-buy {
+      width: 450px;
+      margin: 0 auto;
+    }
+  </style>
+
+  <script>
+    function checkBill(){
+      // 이름(customerName), 수량(productAmount), 주소(customerAddress), 휴대폰번호(customerPhoneNumber) 중 하나라도 입력되지 않으면 alert
+      let customerName = $('#customer-name')
+      let productAmount = $('#product-amount')
+      let customerAddress = $('#customer-address')
+      let customerPhoneNumber = $('#customer-phone-number')
+
+      let phoneNumber1 = customerPhoneNumber.val().split('-')[0];
+      let phoneNumber2 = customerPhoneNumber.val().split('-')[1];
+      let phoneNumber3 = customerPhoneNumber.val().split('-')[2];
+        
+
+      // 입력 안 한 곳에 focus
+      if(customerName.val() == ''){
+        alert("이름을 입력해주세요")
+        customerName.focus()
+      }
+      else if(productAmount.val() == '-- 수량을 선택하세요 --'){
+        alert("수량을 입력해주세요")
+        productAmount.focus()
+      }
+      else if(customerAddress.val() == ''){
+        alert("주소를 입력해주세요")
+        customerAddress.focus()
+      }
+      else if(customerPhoneNumber.val() == ''){
+        alert("휴대폰번호를 입력해주세요")
+        customerPhoneNumber.focus()
+      }
+      else if(customerPhoneNumber.val() != ''){
+        if (phoneNumber1 != '010'){
+          alert("휴대폰번호 입력 형식이 틀립니다.\n010-0000-0000으로 입력해주세요")
+          customerPhoneNumber.focus()
+        }
+        else if ((phoneNumber2 == '' && phoneNumber2.length != 4) || !$.isNumeric(phoneNumber2)){
+          alert("휴대폰번호 입력 형식이 틀립니다.\n010-0000-0000으로 입력해주세요")
+          customerPhoneNumber.focus()
+        }
+        else if ((phoneNumber3 == '' && phoneNumber3.length != 4) || !$.isNumeric(phoneNumber3)){
+          alert("휴대폰번호 입력 형식이 틀립니다.\n010-0000-0000으로 입력해주세요")
+          customerPhoneNumber.focus()
+        }
+        else{
+          alert("주문 완료!")
+        }
+      }
+    }
+  </script>
+
+
+</head>
+
+<body>
+
+  <div class="item">
+    <div id="photo">
+      <img src="https://png.pngtree.com/png-clipart/20190912/ourlarge/pngtree-ipad-png-image_1730680.jpg"
+        class="img-fluid" alt="Responsive image">
+    </div>
+
+    <div id="description">
+      <div id="name-and-price">
+        <p></p>
+        <h3 style="display: inline-block;">1Pad Pro를 팝니다.</h3>
+        <h5 style="display: inline-block;">가격 : 999,000원/개</h5>
+      </div>
+
+      <div id="details">
+        <p>
+          스크린 한가득, 성능 한가득. Aqqle의 가장 앞선 기술이 집약된 완전히 새로운 설계로 탄생된 1Pad Pro. 1Pad의 가능성에 대한 당신의 선입견을 송두리째 바꿔놓을 것입니다.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="buy">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">주문자 이름</span>
+        </div>
+        <input id="customer-name" type="text" class="form-control" placeholder="Name" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">수량</label>
+        </div>
+        <select id="product-amount" class="custom-select">
+          <option selected>-- 수량을 선택하세요 --</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">주소</span>
+        </div>
+        <input id="customer-address" type="text" class="form-control" placeholder="Address" aria-label="Address"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">전화번호</span>
+        </div>
+        <input id="customer-phone-number" type="text" class="form-control" placeholder="Phone number" aria-label="Phone number"
+          aria-describedby="basic-addon1">
+      </div>
+
+
+      <button onclick="checkBill()" type="button" class="btn btn-primary center">주문하기</button>
+
+    </div>
+  </div>
+</body>
+
+</html>
