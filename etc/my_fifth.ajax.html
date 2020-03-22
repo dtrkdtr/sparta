@@ -71,7 +71,7 @@
                     let articles = response['articles']
 
                     for (let i = 0; i < articles.length; i++) {
-                        //console.log(articles.length)
+                        
                         let current = articles[i]
                         let img = current['urlToImage']
                         let link = current['url']
@@ -90,7 +90,8 @@
                         news.append(tempHtml)
                         //console.log(tempHtml)
                     }
-                    console.log(articles.length)
+                    //console.log(articles.length)
+                    //console.log(articles)
                 }
             })
         }
